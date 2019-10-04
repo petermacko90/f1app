@@ -1,0 +1,60 @@
+<div>
+  <button
+    mat-button
+    color="primary"
+    title="Previous season"
+    (click)="onChangeSeason(-1)"
+    [disabled]="selectedSeason === firstSeason"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <mat-form-field>
+    <mat-select
+      [(value)]="selectedSeason"
+      (selectionChange)="onSelectSeason($event)"
+    >
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        Season {{ season }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-button
+    color="primary"
+    title="Next season"
+    (click)="onChangeSeason(1)"
+    [disabled]="selectedSeason === currentSeason + 1"
+  >
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<p *ngIf="error">{{ error }}</p>
+<table *ngIf="dataSource" mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="round">
+    <td class="tr" title="round" mat-cell *matCellDef="let element">
+      {{ element.round }}.
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="location">
+    <td title="location" mat-cell *matCellDef="let element">
+      {{ element.location }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <td class="tr" title="date" mat-cell *matCellDef="let element">
+      {{ element.date }}
+  </td>
+  </ng-container>
+  <ng-container matColumnDef="time">
+    <td class="tr" title="time" mat-cell *matCellDef="let element">
+      {{ element.time }}
+    </td>
+  </ng-container>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    [ngClass]="{ 'highlight': row.isUpcoming }"
+  >
+  </tr>
+</table>
