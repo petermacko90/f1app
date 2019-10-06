@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
+  constructor(private themeService: ThemeService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  saveTheme(theme: string) {
+    this.themeService.setTheme(theme);
   }
-
 }

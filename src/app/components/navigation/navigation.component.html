@@ -4,7 +4,7 @@
       <mat-icon>home</mat-icon> F1 App
     </a>
   </span>
-  <span class="nav-right">
+  <span>
     <a
       mat-button
       routerLink="/calendar"
@@ -14,4 +14,13 @@
       Calendar
     </a>
   </span>
+  <span class="fill-remaining-space"></span>
+  <button mat-button [matMenuTriggerFor]="themeMenu">
+    <span>Theme</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #themeMenu="matMenu">
+    <button mat-menu-item (click)="saveTheme('ferrari')">Ferrari</button>
+    <button mat-menu-item (click)="saveTheme('ferrari-dark')">Ferrari Dark</button>
+  </mat-menu>
 </mat-toolbar>

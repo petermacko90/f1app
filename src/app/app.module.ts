@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HttpErrorInterceptor } from './http-error.interceptor';
-
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ThemeService } from './services/theme.service';
 
 @NgModule({
   declarations: [
@@ -34,4 +35,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  theme: string;
+
+  constructor(
+    private themeService: ThemeService,
+    overlayContainer: OverlayContainer
+  ) {
+    this.themeService.theme.subscribe(theme => {
+      overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme}`;
+    });
+  }
+}
