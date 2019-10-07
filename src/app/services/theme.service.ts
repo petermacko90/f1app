@@ -5,12 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private themeSubject = new BehaviorSubject<string>('ferrari');
+  savedTheme = localStorage.getItem('theme');
+  private themeSubject = new BehaviorSubject<string>(this.savedTheme || 'ferrari');
   theme = this.themeSubject.asObservable();
 
   constructor() { }
 
   setTheme(theme: string) {
     this.themeSubject.next(theme);
+    localStorage.setItem('theme', theme);
   }
 }
