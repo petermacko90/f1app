@@ -20,7 +20,19 @@
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #themeMenu="matMenu">
-    <button mat-menu-item (click)="saveTheme('ferrari')">Ferrari</button>
-    <button mat-menu-item (click)="saveTheme('ferrari-dark')">Ferrari Dark</button>
+    <button
+      *ngFor="let team of teams"
+      mat-menu-item
+      (click)="saveTheme(team.id)"
+    >
+      {{ team.name }}
+    </button>
+    <button
+      *ngFor="let team of teams"
+      mat-menu-item
+      (click)="saveTheme(team.id + '-dark')"
+    >
+      {{ team.name }} Dark
+    </button>
   </mat-menu>
 </mat-toolbar>

@@ -1,38 +1,6 @@
 @import '~@angular/material/theming';
 @include mat-core();
-
-$ferrari: (
-  50 : #fbe0e0,
-  100 : #f5b3b3,
-  200 : #ee8080,
-  300 : #e74d4d,
-  400 : #e12626,
-  500 : #dc0000,
-  600 : #d80000,
-  700 : #d30000,
-  800 : #ce0000,
-  900 : #c50000,
-  A100 : #ffeded,
-  A200 : #ffbaba,
-  A400 : #ff8787,
-  A700 : #ff6e6e,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #000000,
-    A700 : #000000,
-  )
-);
+@import './palettes';
 
 $ferrari-primary: mat-palette($ferrari);
 $ferrari-accent: mat-palette($ferrari, A200, A100, A400);
@@ -49,4 +17,179 @@ $ferrari-light: mat-light-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
   }
   $ferrari-dark: mat-dark-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
   @include angular-material-theme($ferrari-dark);
+}
+
+$mercedes-primary: mat-palette($mercedes);
+$mercedes-accent: mat-palette($mercedes, A200, A100, A400);
+.mercedes {
+  .highlight {
+    background-color: mat-color($mercedes-accent)!important;
+  }
+  $mercedes-light: mat-light-theme($mercedes-primary, $mercedes-accent, $f1app-warn);
+  @include angular-material-theme($mercedes-light);
+}
+
+.mercedes-dark {
+  .highlight {
+    background-color: mat-color($mercedes-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $mercedes-dark: mat-dark-theme($mercedes-primary, $mercedes-accent, $f1app-warn);
+  @include angular-material-theme($mercedes-dark);
+}
+
+$redbull-primary: mat-palette($redbull);
+$redbull-accent: mat-palette($redbull, A400, A200, A700);
+.redbull {
+  .highlight {
+    background-color: mat-color($redbull-accent)!important;
+  }
+  $redbull-light: mat-light-theme($redbull-primary, $redbull-accent, $f1app-warn);
+  @include angular-material-theme($redbull-light);
+}
+
+.redbull-dark {
+  .highlight {
+    background-color: mat-color($redbull-primary)!important;
+  }
+  $redbull-dark: mat-dark-theme($redbull-primary, $redbull-accent, $f1app-warn);
+  @include angular-material-theme($redbull-dark);
+}
+
+$mclaren-primary: mat-palette($mclaren);
+$mclaren-accent: mat-palette($mclaren, A400, A200, A700);
+.mclaren {
+  .highlight {
+    background-color: mat-color($mclaren-accent)!important;
+  }
+  $mclaren-light: mat-light-theme($mclaren-primary, $mclaren-accent, $f1app-warn);
+  @include angular-material-theme($mclaren-light);
+}
+
+.mclaren-dark {
+  .highlight {
+    background-color: mat-color($mclaren-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $mclaren-dark: mat-dark-theme($mclaren-primary, $mclaren-accent, $f1app-warn);
+  @include angular-material-theme($mclaren-dark);
+}
+
+$renault-primary: mat-palette($renault);
+$renault-accent: mat-palette($renault, A400, A200, A700);
+.renault {
+  .highlight {
+    background-color: mat-color($renault-accent)!important;
+  }
+  $renault-light: mat-light-theme($renault-primary, $renault-accent, $f1app-warn);
+  @include angular-material-theme($renault-light);
+}
+
+.renault-dark {
+  .highlight {
+    background-color: mat-color($renault-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $renault-dark: mat-dark-theme($renault-primary, $renault-accent, $f1app-warn);
+  @include angular-material-theme($renault-dark);
+}
+
+$tororosso-primary: mat-palette($tororosso);
+$tororosso-accent: mat-palette($tororosso, A400, A200, A700);
+.tororosso {
+  .highlight {
+    background-color: mat-color($tororosso-accent)!important;
+  }
+  $tororosso-light: mat-light-theme($tororosso-primary, $tororosso-accent, $f1app-warn);
+  @include angular-material-theme($tororosso-light);
+}
+
+.tororosso-dark {
+  .highlight {
+    background-color: mat-color($tororosso-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $tororosso-dark: mat-dark-theme($tororosso-primary, $tororosso-accent, $f1app-warn);
+  @include angular-material-theme($tororosso-dark);
+}
+
+$racingpoint-primary: mat-palette($racingpoint);
+$racingpoint-accent: mat-palette($racingpoint, A400, A200, A700);
+.racingpoint {
+  .highlight {
+    background-color: mat-color($racingpoint-accent)!important;
+  }
+  $racingpoint-light: mat-light-theme($racingpoint-primary, $racingpoint-accent, $f1app-warn);
+  @include angular-material-theme($racingpoint-light);
+}
+
+.racingpoint-dark {
+  .highlight {
+    background-color: mat-color($racingpoint-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $racingpoint-dark: mat-dark-theme($racingpoint-primary, $racingpoint-accent, $f1app-warn);
+  @include angular-material-theme($racingpoint-dark);
+}
+
+$alfaromeo-primary: mat-palette($alfaromeo);
+$alfaromeo-accent: mat-palette($alfaromeo, A200, A100, A400);
+.alfaromeo {
+  .highlight {
+    background-color: mat-color($alfaromeo-accent)!important;
+  }
+  $alfaromeo-light: mat-light-theme($alfaromeo-primary, $alfaromeo-accent, $f1app-warn);
+  @include angular-material-theme($alfaromeo-light);
+}
+
+.alfaromeo-dark {
+  .highlight {
+    background-color: mat-color($alfaromeo-primary)!important;
+  }
+  $alfaromeo-dark: mat-dark-theme($alfaromeo-primary, $alfaromeo-accent, $f1app-warn);
+  @include angular-material-theme($alfaromeo-dark);
+}
+
+$haas-primary: mat-palette($haas);
+$haas-accent: mat-palette($haas, A200, A100, A400);
+.haas {
+  .highlight {
+    background-color: mat-color($haas-accent)!important;
+  }
+  $haas-light: mat-light-theme($haas-primary, $haas-accent, $f1app-warn);
+  @include angular-material-theme($haas-light);
+}
+
+.haas-dark {
+  .highlight {
+    background-color: mat-color($haas-primary)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $haas-dark: mat-dark-theme($haas-primary, $haas-accent, $f1app-warn);
+  @include angular-material-theme($haas-dark);
+}
+
+$williams-primary: mat-palette($williams);
+$williams-accent: mat-palette($williams, A200, A100, A400);
+.williams, .williams-dark {
+  .highlight {
+    background-color: mat-color($williams-accent)!important;
+    td {
+      color: black!important;
+    }
+  }
+  $williams-dark: mat-dark-theme($williams-primary, $williams-accent, $f1app-warn);
+  @include angular-material-theme($williams-dark);
 }
