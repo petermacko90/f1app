@@ -11,7 +11,7 @@ $f1app-warn: mat-palette($mat-red);
 $ferrari-light: mat-light-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
 @include angular-material-theme($ferrari-light);
 
-.ferrari-dark {
+.ferrari.dark {
   .highlight {
     background-color: mat-color($ferrari-primary)!important;
   }
@@ -29,7 +29,7 @@ $mercedes-accent: mat-palette($mercedes, A200, A100, A400);
   @include angular-material-theme($mercedes-light);
 }
 
-.mercedes-dark {
+.mercedes.dark {
   .highlight {
     background-color: mat-color($mercedes-primary)!important;
     td {
@@ -50,7 +50,7 @@ $redbull-accent: mat-palette($redbull, A400, A200, A700);
   @include angular-material-theme($redbull-light);
 }
 
-.redbull-dark {
+.redbull.dark {
   .highlight {
     background-color: mat-color($redbull-primary)!important;
   }
@@ -68,7 +68,7 @@ $mclaren-accent: mat-palette($mclaren, A400, A200, A700);
   @include angular-material-theme($mclaren-light);
 }
 
-.mclaren-dark {
+.mclaren.dark {
   .highlight {
     background-color: mat-color($mclaren-primary)!important;
     td {
@@ -89,7 +89,7 @@ $renault-accent: mat-palette($renault, A400, A200, A700);
   @include angular-material-theme($renault-light);
 }
 
-.renault-dark {
+.renault.dark {
   .highlight {
     background-color: mat-color($renault-primary)!important;
     td {
@@ -110,7 +110,7 @@ $tororosso-accent: mat-palette($tororosso, A400, A200, A700);
   @include angular-material-theme($tororosso-light);
 }
 
-.tororosso-dark {
+.tororosso.dark {
   .highlight {
     background-color: mat-color($tororosso-primary)!important;
     td {
@@ -131,7 +131,7 @@ $racingpoint-accent: mat-palette($racingpoint, A400, A200, A700);
   @include angular-material-theme($racingpoint-light);
 }
 
-.racingpoint-dark {
+.racingpoint.dark {
   .highlight {
     background-color: mat-color($racingpoint-primary)!important;
     td {
@@ -152,7 +152,7 @@ $alfaromeo-accent: mat-palette($alfaromeo, A200, A100, A400);
   @include angular-material-theme($alfaromeo-light);
 }
 
-.alfaromeo-dark {
+.alfaromeo.dark {
   .highlight {
     background-color: mat-color($alfaromeo-primary)!important;
   }
@@ -170,7 +170,7 @@ $haas-accent: mat-palette($haas, A200, A100, A400);
   @include angular-material-theme($haas-light);
 }
 
-.haas-dark {
+.haas.dark {
   .highlight {
     background-color: mat-color($haas-primary)!important;
     td {
@@ -183,7 +183,7 @@ $haas-accent: mat-palette($haas, A200, A100, A400);
 
 $williams-primary: mat-palette($williams);
 $williams-accent: mat-palette($williams, A200, A100, A400);
-.williams, .williams-dark {
+.williams {
   .highlight {
     background-color: mat-color($williams-accent)!important;
     td {

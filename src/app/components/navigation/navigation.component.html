@@ -27,12 +27,12 @@
     >
       {{ team.name }}
     </button>
-    <button
-      *ngFor="let team of teams"
-      mat-menu-item
-      (click)="saveTheme(team.id + '-dark')"
-    >
-      {{ team.name }} Dark
-    </button>
   </mat-menu>
+  <mat-slide-toggle
+    aria-label="Toggle light/dark theme"
+    [checked]="isDark"
+    (change)="saveIsDark(!isDark)"
+  >
+    <mat-icon>brightness_3</mat-icon>
+  </mat-slide-toggle>
 </mat-toolbar>

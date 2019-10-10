@@ -36,14 +36,15 @@ import { ThemeService } from './services/theme.service';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  theme: string;
-
   constructor(
     private themeService: ThemeService,
     overlayContainer: OverlayContainer
   ) {
     this.themeService.theme.subscribe(theme => {
-      overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme}`;
+      this.themeService.isDark.subscribe(isDark => {
+        const dark = isDark ? 'dark' : '';
+        overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme} ${dark}`;
+      });
     });
   }
 }

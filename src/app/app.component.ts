@@ -9,10 +9,12 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit {
   title = 'F1 App';
   theme: string;
+  isDark: boolean;
 
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
     this.themeService.theme.subscribe(theme => this.theme = theme);
+    this.themeService.isDark.subscribe(isDark => this.isDark = isDark);
   }
 }
