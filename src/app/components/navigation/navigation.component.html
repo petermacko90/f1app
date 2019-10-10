@@ -29,6 +29,7 @@
     </button>
   </mat-menu>
   <mat-slide-toggle
+    *ngIf="theme !== 'williams'"
     aria-label="Toggle light/dark theme"
     [checked]="isDark"
     (change)="saveIsDark(!isDark)"
