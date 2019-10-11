@@ -31,9 +31,11 @@
   <mat-slide-toggle
     *ngIf="theme !== 'williams'"
     aria-label="Toggle light/dark theme"
+    title="Toggle light/dark theme"
     [checked]="isDark"
     (change)="saveIsDark(!isDark)"
   >
-    <mat-icon>brightness_3</mat-icon>
+    <mat-icon *ngIf="isDark">brightness_3</mat-icon>
+    <mat-icon *ngIf="!isDark">brightness_5</mat-icon>
   </mat-slide-toggle>
 </mat-toolbar>

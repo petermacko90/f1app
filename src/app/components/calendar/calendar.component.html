@@ -32,22 +32,22 @@
 <p *ngIf="error">{{ error }}</p>
 <table *ngIf="dataSource" mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="round">
-    <td class="tr" title="round" mat-cell *matCellDef="let element">
+    <td class="tr" title="Round" mat-cell *matCellDef="let element">
       {{ element.round }}.
     </td>
   </ng-container>
   <ng-container matColumnDef="location">
-    <td title="location" mat-cell *matCellDef="let element">
+    <td title="Location" mat-cell *matCellDef="let element">
       {{ element.location }}
     </td>
   </ng-container>
   <ng-container matColumnDef="date">
-    <td class="tr" title="date" mat-cell *matCellDef="let element">
+    <td class="tr" title="Date" mat-cell *matCellDef="let element">
       {{ element.date }}
   </td>
   </ng-container>
   <ng-container matColumnDef="time">
-    <td class="tr" title="time" mat-cell *matCellDef="let element">
+    <td class="tr" title="Time" mat-cell *matCellDef="let element">
       {{ element.time }}
     </td>
   </ng-container>
