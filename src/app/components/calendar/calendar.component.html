@@ -12,6 +12,7 @@
     <mat-select
       [(value)]="selectedSeason"
       (selectionChange)="onSelectSeason($event)"
+      aria-label="Select season"
     >
       <mat-option *ngFor="let season of seasons" [value]="season">
         Season {{ season }}

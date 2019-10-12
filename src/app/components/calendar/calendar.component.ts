@@ -66,7 +66,7 @@ export class CalendarComponent implements OnInit {
     const upcomingRace = this.getUpcomingRace(calendar, Number(calendar[0].season), this.currentSeason);
 
     return calendar.map(race => ({
-      round: `${race.round}`,
+      round: race.round,
       location: `${race.Circuit.Location.country}, ${race.Circuit.Location.locality}`,
       date: this.getDate(race.date, race.time).toLocaleDateString(),
       time: race.time ? this.getDate(race.date, race.time).toLocaleTimeString() : 'N/A',
