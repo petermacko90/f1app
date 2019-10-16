@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { combineLatest } from 'rxjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,11 +41,10 @@ export class AppModule {
     private themeService: ThemeService,
     overlayContainer: OverlayContainer
   ) {
-    this.themeService.theme.subscribe(theme => {
-      this.themeService.isDark.subscribe(isDark => {
-        const dark = isDark ? 'dark' : '';
-        overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme} ${dark}`;
-      });
+    const themes = combineLatest(this.themeService.theme, this.themeService.isDark);
+    themes.subscribe(([theme, isDark]) => {
+      const dark = isDark ? 'dark' : '';
+      overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme} ${dark}`;
     });
   }
 }
