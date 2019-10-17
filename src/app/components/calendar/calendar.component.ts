@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { CalendarService } from '../../services/calendar.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RaceDataSource } from '../../models/Race';
-import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
+import { FIRST_SEASON, CURRENT_SEASON, SEASONS } from '../../constants/constants';
 import { MatSelectChange } from '@angular/material';
 
 @Component({
@@ -13,7 +13,7 @@ import { MatSelectChange } from '@angular/material';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  seasons: number[] = [];
+  seasons = SEASONS;
   selectedSeason = CURRENT_SEASON;
   firstSeason = FIRST_SEASON;
   currentSeason = CURRENT_SEASON;
@@ -27,10 +27,6 @@ export class CalendarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    for (let i = this.firstSeason; i <= this.currentSeason + 1; i++) {
-      this.seasons.push(i);
-    }
-
     this.dataSource$ = this.route.paramMap.pipe(
       switchMap(params => {
         let season = Number(params.get('season'));
