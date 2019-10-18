@@ -12,6 +12,7 @@ import { MatSelectChange } from '@angular/material';
 })
 export class CalendarComponent implements OnInit {
   loading = false;
+  error: string;
   seasons = SEASONS;
   selectedSeason = CURRENT_SEASON;
   firstSeason = FIRST_SEASON;
@@ -42,10 +43,15 @@ export class CalendarComponent implements OnInit {
   }
 
   getCalendar(season: number) {
+    this.error = '';
     this.loading = true;
     this.calendarService.getCalendar(season).subscribe(
       (data) => {
         this.dataSource = data;
+        this.loading = false;
+      },
+      (error: Error) => {
+        this.error = error.message;
         this.loading = false;
       }
     );

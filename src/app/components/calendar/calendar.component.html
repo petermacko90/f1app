@@ -29,6 +29,7 @@
     <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
+<p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
 <table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="round">

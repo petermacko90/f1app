@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { RaceData, Race, RaceDataSource } from '../models/Race';
 import { CURRENT_SEASON } from '../constants/constants';
 
@@ -31,6 +31,9 @@ export class CalendarService {
               };
               return this.getDataSource(data.MRData.RaceTable.Races);
             }
+          }),
+          catchError(error => {
+            throw new Error(error);
           })
         );
     }
