@@ -29,10 +29,8 @@
     <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
-<ng-template #loading>
-  <mat-spinner></mat-spinner>
-</ng-template>
-<table *ngIf="dataSource$ | async; else loading" mat-table [dataSource]="dataSource$">
+<mat-spinner *ngIf="loading"></mat-spinner>
+<table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="round">
     <td class="tr" title="Round" mat-cell *matCellDef="let element">
       {{ element.round }}.
