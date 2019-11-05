@@ -3,15 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { RaceData, Race, RaceDataSource } from '../models/Race';
-import { CURRENT_SEASON } from '../constants/constants';
+import { CURRENT_SEASON, BASE_URL } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarService {
-  private baseUrl = 'https://ergast.com/api/f1';
   private calendars: { [k: string]: Race[] };
-  private currentSeason = CURRENT_SEASON;
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +17,7 @@ export class CalendarService {
     if (this.calendars && this.calendars[season]) {
       return of(this.getDataSource(this.calendars[season]));
     } else {
-      return this.http.get<RaceData>(`${this.baseUrl}/${season}.json`)
+      return this.http.get<RaceData>(`${BASE_URL}/${season}.json`)
         .pipe(
           map(data => {
             if (data.MRData.RaceTable.Races.length === 0) {
@@ -55,7 +53,7 @@ export class CalendarService {
   }
 
   private getDataSource(calendar: Race[]): RaceDataSource[] {
-    const upcomingRace = this.getUpcomingRace(calendar, Number(calendar[0].season), this.currentSeason);
+    const upcomingRace = this.getUpcomingRace(calendar, Number(calendar[0].season), CURRENT_SEASON);
 
     return calendar.map(race => ({
       round: race.round,

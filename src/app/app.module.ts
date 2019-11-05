@@ -41,7 +41,7 @@ export class AppModule {
     private themeService: ThemeService,
     overlayContainer: OverlayContainer
   ) {
-    const themes = combineLatest(this.themeService.theme, this.themeService.isDark);
+    const themes = combineLatest([this.themeService.theme, this.themeService.isDark]);
     themes.subscribe(([theme, isDark]) => {
       const dark = isDark ? 'dark' : '';
       overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme} ${dark}`;

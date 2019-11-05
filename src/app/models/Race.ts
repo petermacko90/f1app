@@ -5,7 +5,7 @@ export interface Race {
       lat: string;
       locality: string;
       long: string;
-    },
+    };
     circuitId: string;
     circuitName: string;
     url: string;

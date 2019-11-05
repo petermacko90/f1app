@@ -1,7 +1,7 @@
 export const FIRST_SEASON = 1950;
 export const CURRENT_SEASON = new Date().getFullYear();
 
-let seasons: number[] = [];
+const seasons: number[] = [];
 for (let i = FIRST_SEASON; i <= CURRENT_SEASON + 1; i++) {
   seasons.push(i);
 }
@@ -23,3 +23,5 @@ export const TEAMS: Team[] = [
   { id: 'haas', name: 'Haas' },
   { id: 'williams', name: 'Williams' }
 ];
+
+export const BASE_URL = 'https://ergast.com/api/f1';
