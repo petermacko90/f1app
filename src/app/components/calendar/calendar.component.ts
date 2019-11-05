@@ -19,7 +19,7 @@ export class CalendarComponent implements OnInit {
   firstSeason = FIRST_SEASON;
   currentSeason = CURRENT_SEASON;
   dataSource: RaceDataSource[];
-  displayedColumns: string[] = ['round', 'location', 'date', 'time'];
+  displayedColumns = ['round', 'location', 'date', 'time'];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,13 +35,12 @@ export class CalendarComponent implements OnInit {
       || season > this.currentSeason + 1
       || Number.isNaN(season)
     ) {
-      season = this.currentSeason;
-      this.selectedSeason = season;
+      this.selectedSeason = this.currentSeason;
       this.location.replaceState(`/calendar/${this.selectedSeason}`);
     } else {
       this.selectedSeason = season;
     }
-    this.getCalendar(season);
+    this.getCalendar(this.selectedSeason);
   }
 
   getCalendar(season: number) {

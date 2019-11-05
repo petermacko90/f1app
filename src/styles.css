@@ -6,3 +6,12 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+table {
+  width: 100%;
+}
+
+table td.tr {
+  text-align: right;
+  padding-right: 5px;
+}
