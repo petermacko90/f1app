@@ -28,7 +28,7 @@ export class CalendarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let season = Number(this.route.snapshot.paramMap.get('season'));
+    const season = Number(this.route.snapshot.paramMap.get('season'));
     if (
       season === 0
       || season < this.firstSeason

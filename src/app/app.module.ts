@@ -9,6 +9,7 @@ import { HttpErrorInterceptor } from './http-error.interceptor';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { StandingsComponent } from './components/standings/standings.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ThemeService } from './services/theme.service';
@@ -17,6 +18,7 @@ import { ThemeService } from './services/theme.service';
   declarations: [
     AppComponent,
     CalendarComponent,
+    StandingsComponent,
     NavigationComponent,
     NotFoundComponent
   ],
