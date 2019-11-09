@@ -1,7 +1,7 @@
 <h1>Driver Standings</h1>
 <p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" *ngIf="!loading">
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef title="Position" class="tr">Pos.</th>
     <td class="tr" mat-cell *matCellDef="let element">
@@ -32,6 +32,6 @@
       {{ element.wins }}
     </td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
