@@ -3,8 +3,7 @@ import { Location } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
 import { ActivatedRoute } from '@angular/router';
 import { RaceDataSource } from '../../models/Race';
-import { FIRST_SEASON, CURRENT_SEASON, SEASONS } from '../../constants/constants';
-import { MatSelectChange } from '@angular/material';
+import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
 
 @Component({
   selector: 'app-calendar',
@@ -14,10 +13,7 @@ import { MatSelectChange } from '@angular/material';
 export class CalendarComponent implements OnInit {
   loading = false;
   error: string;
-  seasons = SEASONS;
   selectedSeason = CURRENT_SEASON;
-  firstSeason = FIRST_SEASON;
-  currentSeason = CURRENT_SEASON;
   dataSource: RaceDataSource[];
   displayedColumns = ['round', 'location', 'date', 'time'];
 
@@ -31,11 +27,11 @@ export class CalendarComponent implements OnInit {
     const season = Number(this.route.snapshot.paramMap.get('season'));
     if (
       season === 0
-      || season < this.firstSeason
-      || season > this.currentSeason + 1
+      || season < FIRST_SEASON
+      || season > CURRENT_SEASON + 1
       || Number.isNaN(season)
     ) {
-      this.selectedSeason = this.currentSeason;
+      this.selectedSeason = CURRENT_SEASON;
       this.location.replaceState(`/calendar/${this.selectedSeason}`);
     } else {
       this.selectedSeason = season;
@@ -58,14 +54,8 @@ export class CalendarComponent implements OnInit {
     );
   }
 
-  onSelectSeason(e: MatSelectChange) {
-    this.selectedSeason = Number(e.value);
-    this.getCalendar(this.selectedSeason);
-    this.location.replaceState(`/calendar/${this.selectedSeason}`);
-  }
-
-  onChangeSeason(change: number) {
-    this.selectedSeason += change;
+  onSetSeason(season: number) {
+    this.selectedSeason = season;
     this.getCalendar(this.selectedSeason);
     this.location.replaceState(`/calendar/${this.selectedSeason}`);
   }

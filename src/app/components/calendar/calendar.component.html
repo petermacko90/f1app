@@ -1,34 +1,8 @@
-<div>
-  <button
-    mat-button
-    color="primary"
-    title="Previous season"
-    (click)="onChangeSeason(-1)"
-    [disabled]="selectedSeason === firstSeason"
-  >
-    <mat-icon>chevron_left</mat-icon>
-  </button>
-  <mat-form-field>
-    <mat-select
-      [(value)]="selectedSeason"
-      (selectionChange)="onSelectSeason($event)"
-      aria-label="Select season"
-    >
-      <mat-option *ngFor="let season of seasons" [value]="season">
-        Season {{ season }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button
-    mat-button
-    color="primary"
-    title="Next season"
-    (click)="onChangeSeason(1)"
-    [disabled]="selectedSeason === currentSeason + 1"
-  >
-    <mat-icon>chevron_right</mat-icon>
-  </button>
-</div>
+<app-season-select
+  [selectedSeason]="selectedSeason"
+  (changeSeason)="onSetSeason($event)"
+>
+</app-season-select>
 <p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
 <table mat-table [dataSource]="dataSource">
