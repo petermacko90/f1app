@@ -1,7 +1,12 @@
+<app-season-select
+  [selectedSeason]="selectedSeason"
+  (changeSeason)="onSetSeason($event)"
+>
+</app-season-select>
 <h1>Driver Standings</h1>
 <p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
-<table mat-table [dataSource]="dataSource" *ngIf="!loading">
+<table mat-table [dataSource]="dataSource" *ngIf="!loading && !error">
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef title="Position" class="tr">Pos.</th>
     <td class="tr" mat-cell *matCellDef="let element">

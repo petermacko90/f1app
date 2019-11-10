@@ -55,4 +55,10 @@ export class StandingsComponent implements OnInit {
       }
     );
   }
+
+  onSetSeason(season: number) {
+    this.selectedSeason = season;
+    this.getDriverStandings(this.selectedSeason);
+    this.location.replaceState(`/standings/${this.selectedSeason}`);
+  }
 }

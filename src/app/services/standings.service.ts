@@ -24,8 +24,8 @@ export class StandingsService {
       return this.http.get<DriverStandingsData>(`${BASE_URL}/${season}/driverStandings.json`)
         .pipe(
           map(data => {
-            if (!data.MRData.StandingsTable.StandingsLists) {
-              return [];
+            if (data.MRData.StandingsTable.StandingsLists.length === 0) {
+              throw new Error('No data available');
             } else {
               this.driverStandings = {
                 ...this.driverStandings,

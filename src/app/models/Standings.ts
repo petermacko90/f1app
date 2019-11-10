@@ -23,14 +23,14 @@ export interface DriverStandings {
   wins: string;
 }
 
+interface StandingsLists {
+  DriverStandings: DriverStandings[];
+}
+
 export interface DriverStandingsData {
   MRData: {
     StandingsTable: {
-      StandingsLists: {
-        0: {
-          DriverStandings: DriverStandings[];
-        };
-      };
+      StandingsLists: StandingsLists[];
     };
   };
 }
