@@ -13,9 +13,7 @@ import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
 export class StandingsComponent implements OnInit {
   loading = false;
   error: string;
-  selectedSeason = CURRENT_SEASON;
-  firstSeason = FIRST_SEASON;
-  currentSeason = CURRENT_SEASON;
+  selectedSeason: number;
   dataSource: DriverStandingsDataSource[];
   displayedColumns = ['position', 'driver', 'constructors', 'points', 'wins'];
 
@@ -29,11 +27,11 @@ export class StandingsComponent implements OnInit {
     const season = Number(this.route.snapshot.paramMap.get('season'));
     if (
       season === 0
-      || season < this.firstSeason
-      || season > this.currentSeason + 1
+      || season < FIRST_SEASON
+      || season > CURRENT_SEASON + 1
       || Number.isNaN(season)
     ) {
-      this.selectedSeason = this.currentSeason;
+      this.selectedSeason = CURRENT_SEASON;
       this.location.replaceState(`/standings/${this.selectedSeason}`);
     } else {
       this.selectedSeason = season;
