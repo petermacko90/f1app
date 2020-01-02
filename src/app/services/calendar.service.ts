@@ -21,7 +21,7 @@ export class CalendarService {
         .pipe(
           map(data => {
             if (data.MRData.RaceTable.Races.length === 0) {
-              return [];
+              throw new Error('No data available');
             } else {
               this.calendars = {
                 ...this.calendars,
@@ -41,19 +41,17 @@ export class CalendarService {
     return time ? new Date(`${date}T${time}`) : new Date(date);
   }
 
-  private getUpcomingRace(races: Race[], season: number, currentSeason: number) {
-    if (season === currentSeason) {
-      for (let i = 0, l = races.length, d = new Date(); i < l; i++) {
-        if (d < this.getDate(races[i].date, races[i].time)) {
-          return races[i].round;
-        }
+  private getUpcomingRace(races: Race[]) {
+    for (let i = 0, l = races.length, d = new Date(); i < l; i++) {
+      if (d < this.getDate(races[i].date, races[i].time)) {
+        return races[i].round;
       }
     }
     return '';
   }
 
   private getDataSource(calendar: Race[]): RaceDataSource[] {
-    const upcomingRace = this.getUpcomingRace(calendar, Number(calendar[0].season), CURRENT_SEASON);
+    const upcomingRace = (Number(calendar[0].season) === CURRENT_SEASON) ? this.getUpcomingRace(calendar) : '';
 
     return calendar.map(race => ({
       round: race.round,

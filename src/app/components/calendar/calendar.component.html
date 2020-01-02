@@ -5,7 +5,7 @@
 </app-season-select>
 <p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
-<table mat-table [dataSource]="dataSource">
+<table *ngIf="!error" mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="round">
     <td class="tr" title="Round" mat-cell *matCellDef="let element">
       {{ element.round }}.
