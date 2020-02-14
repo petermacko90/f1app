@@ -7,7 +7,6 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'F1 App';
   theme: string;
   isDark: boolean;
 

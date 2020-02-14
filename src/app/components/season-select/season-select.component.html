@@ -4,7 +4,7 @@
     color="primary"
     title="Previous season"
     (click)="onChangeSeason(-1)"
-    [disabled]="selectedSeason === firstSeason"
+    [disabled]="selectedSeason === seasonRange[0]"
   >
     <mat-icon>chevron_left</mat-icon>
   </button>
@@ -24,7 +24,7 @@
     color="primary"
     title="Next season"
     (click)="onChangeSeason(1)"
-    [disabled]="selectedSeason === currentSeason + 1"
+    [disabled]="selectedSeason === seasonRange[1]"
   >
     <mat-icon>chevron_right</mat-icon>
   </button>

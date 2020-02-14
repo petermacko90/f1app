@@ -24,14 +24,15 @@ export class StandingsService {
       return this.http.get<DriverStandingsData>(`${BASE_URL}/${season}/driverStandings.json`)
         .pipe(
           map(data => {
-            if (data.MRData.StandingsTable.StandingsLists.length === 0) {
+            const standings = data.MRData.StandingsTable.StandingsLists;
+            if (standings.length === 0) {
               throw new Error('No data available');
             } else {
               this.driverStandings = {
                 ...this.driverStandings,
-                ...{ [season]: data.MRData.StandingsTable.StandingsLists[0].DriverStandings }
+                ...{ [season]: standings[0].DriverStandings }
               };
-              return this.getDriversDataSource(data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
+              return this.getDriversDataSource(standings[0].DriverStandings);
             }
           }),
           catchError(error => {

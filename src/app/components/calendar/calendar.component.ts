@@ -13,6 +13,8 @@ import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
 export class CalendarComponent implements OnInit {
   loading = false;
   error: string;
+  firstSeason = FIRST_SEASON;
+  currentSeason = CURRENT_SEASON;
   selectedSeason = CURRENT_SEASON;
   dataSource: RaceDataSource[];
   displayedColumns = ['round', 'location', 'date', 'time'];

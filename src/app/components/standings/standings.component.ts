@@ -13,6 +13,8 @@ import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
 export class StandingsComponent implements OnInit {
   loading = false;
   error: string;
+  firstSeason = FIRST_SEASON;
+  currentSeason = CURRENT_SEASON;
   selectedSeason: number;
   dataSource: DriverStandingsDataSource[];
   displayedColumns = ['position', 'driver', 'constructors', 'points', 'wins'];

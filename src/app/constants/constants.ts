@@ -1,12 +1,6 @@
 export const FIRST_SEASON = 1950;
 export const CURRENT_SEASON = new Date().getFullYear();
 
-const seasons: number[] = [];
-for (let i = FIRST_SEASON; i <= CURRENT_SEASON + 1; i++) {
-  seasons.push(i);
-}
-export const SEASONS = seasons;
-
 interface Team {
   id: string;
   name: string;
