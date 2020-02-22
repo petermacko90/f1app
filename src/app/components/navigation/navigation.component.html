@@ -5,20 +5,10 @@
     </a>
   </span>
   <span>
-    <a
-      mat-button
-      routerLink="/calendar"
-      [routerLinkActive]="['active']"
-      class="nav-item"
-    >
+    <a mat-button routerLink="/calendar">
       Calendar
     </a>
-    <a
-      mat-button
-      routerLink="/standings"
-      [routerLinkActive]="['active']"
-      class="nav-item"
-    >
+    <a mat-button routerLink="/standings">
       Standings
     </a>
   </span>
@@ -36,14 +26,22 @@
       {{ team.name }}
     </button>
   </mat-menu>
-  <mat-slide-toggle
-    *ngIf="theme !== 'williams'"
-    aria-label="Toggle light/dark theme"
-    title="Toggle light/dark theme"
-    [checked]="isDark"
-    (change)="saveIsDark(!isDark)"
+  <button
+    *ngIf="isDark && theme !== 'williams'"
+    mat-button
+    (click)="saveIsDark(false)"
+    title="Light theme"
+    aria-label="Set light theme"
   >
-    <mat-icon *ngIf="isDark">brightness_3</mat-icon>
-    <mat-icon *ngIf="!isDark">brightness_5</mat-icon>
-  </mat-slide-toggle>
+    <mat-icon>brightness_5</mat-icon>
+  </button>
+  <button
+    *ngIf="!isDark && theme !== 'williams'"
+    mat-button
+    (click)="saveIsDark(true)"
+    title="Dark theme"
+    aria-label="Set dark theme"
+  >
+    <mat-icon>brightness_3</mat-icon>
+  </button>
 </mat-toolbar>
