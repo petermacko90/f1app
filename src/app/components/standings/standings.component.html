@@ -1,10 +1,11 @@
+<h1>Standings</h1>
 <app-season-select
   [selectedSeason]="selectedSeason"
   [seasonRange]="[firstSeason, currentSeason]"
   (changeSeason)="onSetSeason($event)"
 >
 </app-season-select>
-<h1>Driver Standings</h1>
+<h2>Driver Standings</h2>
 <p *ngIf="error">{{ error }}</p>
 <mat-spinner *ngIf="loading"></mat-spinner>
 <table mat-table [dataSource]="dataSource" *ngIf="!loading && !error">
