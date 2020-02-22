@@ -1,3 +1,9 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
+
+.theme-button {
+  min-width: unset;
+  padding-left: 6px;
+  padding-right: 6px;
+}

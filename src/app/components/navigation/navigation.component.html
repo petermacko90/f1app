@@ -29,8 +29,9 @@
   <button
     *ngIf="isDark && theme !== 'williams'"
     mat-button
+    class="theme-button"
     (click)="saveIsDark(false)"
-    title="Light theme"
+    title="Set light theme"
     aria-label="Set light theme"
   >
     <mat-icon>brightness_5</mat-icon>
@@ -38,8 +39,9 @@
   <button
     *ngIf="!isDark && theme !== 'williams'"
     mat-button
+    class="theme-button"
     (click)="saveIsDark(true)"
-    title="Dark theme"
+    title="Set dark theme"
     aria-label="Set dark theme"
   >
     <mat-icon>brightness_3</mat-icon>

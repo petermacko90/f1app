@@ -1,14 +1,15 @@
 <div>
   <button
-    mat-button
+    mat-raised-button
     color="primary"
+    class="select-button"
     title="Previous season"
     (click)="onChangeSeason(-1)"
     [disabled]="selectedSeason === seasonRange[0]"
   >
     <mat-icon>chevron_left</mat-icon>
   </button>
-  <mat-form-field>
+  <mat-form-field class="select">
     <mat-select
       [(value)]="selectedSeason"
       (selectionChange)="onSelectSeason($event)"
@@ -20,8 +21,9 @@
     </mat-select>
   </mat-form-field>
   <button
-    mat-button
+    mat-raised-button
     color="primary"
+    class="select-button"
     title="Next season"
     (click)="onChangeSeason(1)"
     [disabled]="selectedSeason === seasonRange[1]"
