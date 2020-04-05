@@ -27,7 +27,7 @@
     </button>
   </mat-menu>
   <button
-    *ngIf="isDark && theme !== 'williams'"
+    *ngIf="isDark"
     mat-button
     class="theme-button"
     (click)="saveIsDark(false)"
@@ -37,7 +37,7 @@
     <mat-icon>brightness_5</mat-icon>
   </button>
   <button
-    *ngIf="!isDark && theme !== 'williams'"
+    *ngIf="!isDark"
     mat-button
     class="theme-button"
     (click)="saveIsDark(true)"

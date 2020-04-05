@@ -4,9 +4,15 @@
 
 $ferrari-primary: mat-palette($ferrari);
 $ferrari-accent: mat-palette($ferrari, A200, A100, A400);
-.highlight {
-  background-color: mat-color($ferrari-accent)!important;
+.ferrari {
+  .highlight {
+    background-color: mat-color($ferrari-accent)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
+  }
 }
+
 $f1app-warn: mat-palette($mat-red);
 $ferrari-light: mat-light-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
 @include angular-material-theme($ferrari-light);
@@ -14,6 +20,9 @@ $ferrari-light: mat-light-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
 .ferrari.dark {
   .highlight {
     background-color: mat-color($ferrari-primary)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white!important;
   }
   $ferrari-dark: mat-dark-theme($ferrari-primary, $ferrari-accent, $f1app-warn);
   @include angular-material-theme($ferrari-dark);
@@ -25,6 +34,9 @@ $mercedes-accent: mat-palette($mercedes, A200, A100, A400);
   .highlight {
     background-color: mat-color($mercedes-accent)!important;
   }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
+  }
   $mercedes-light: mat-light-theme($mercedes-primary, $mercedes-accent, $f1app-warn);
   @include angular-material-theme($mercedes-light);
 }
@@ -35,6 +47,9 @@ $mercedes-accent: mat-palette($mercedes, A200, A100, A400);
     td {
       color: black!important;
     }
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat-color($mercedes-accent)!important;
   }
   $mercedes-dark: mat-dark-theme($mercedes-primary, $mercedes-accent, $f1app-warn);
   @include angular-material-theme($mercedes-dark);
@@ -54,6 +69,9 @@ $redbull-accent: mat-palette($redbull, A400, A200, A700);
   .highlight {
     background-color: mat-color($redbull-primary)!important;
   }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white!important;
+  }
   $redbull-dark: mat-dark-theme($redbull-primary, $redbull-accent, $f1app-warn);
   @include angular-material-theme($redbull-dark);
 }
@@ -63,6 +81,9 @@ $mclaren-accent: mat-palette($mclaren, A400, A200, A700);
 .mclaren {
   .highlight {
     background-color: mat-color($mclaren-accent)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
   }
   $mclaren-light: mat-light-theme($mclaren-primary, $mclaren-accent, $f1app-warn);
   @include angular-material-theme($mclaren-light);
@@ -75,6 +96,9 @@ $mclaren-accent: mat-palette($mclaren, A400, A200, A700);
       color: black!important;
     }
   }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat-color($mclaren-accent)!important;
+  }
   $mclaren-dark: mat-dark-theme($mclaren-primary, $mclaren-accent, $f1app-warn);
   @include angular-material-theme($mclaren-dark);
 }
@@ -84,6 +108,9 @@ $renault-accent: mat-palette($renault, A400, A200, A700);
 .renault {
   .highlight {
     background-color: mat-color($renault-accent)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
   }
   $renault-light: mat-light-theme($renault-primary, $renault-accent, $f1app-warn);
   @include angular-material-theme($renault-light);
@@ -100,32 +127,41 @@ $renault-accent: mat-palette($renault, A400, A200, A700);
   @include angular-material-theme($renault-dark);
 }
 
-$tororosso-primary: mat-palette($tororosso);
-$tororosso-accent: mat-palette($tororosso, A400, A200, A700);
-.tororosso {
+$alphatauri-primary: mat-palette($alphatauri);
+$alphatauri-accent: mat-palette($alphatauri, A400, A200, A700);
+.alphatauri {
   .highlight {
-    background-color: mat-color($tororosso-accent)!important;
+    background-color: rgba(0, 0, 0, 0.12)!important;
   }
-  $tororosso-light: mat-light-theme($tororosso-primary, $tororosso-accent, $f1app-warn);
-  @include angular-material-theme($tororosso-light);
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
+  }
+  $alphatauri-light: mat-light-theme($alphatauri-primary, $alphatauri-accent, $f1app-warn);
+  @include angular-material-theme($alphatauri-light);
 }
 
-.tororosso.dark {
+.alphatauri.dark {
   .highlight {
-    background-color: mat-color($tororosso-primary)!important;
+    background-color: mat-color($alphatauri-accent)!important;
     td {
       color: black!important;
     }
   }
-  $tororosso-dark: mat-dark-theme($tororosso-primary, $tororosso-accent, $f1app-warn);
-  @include angular-material-theme($tororosso-dark);
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white!important;
+  }
+  $alphatauri-dark: mat-dark-theme($alphatauri-primary, $alphatauri-accent, $f1app-warn);
+  @include angular-material-theme($alphatauri-dark);
 }
 
 $racingpoint-primary: mat-palette($racingpoint);
-$racingpoint-accent: mat-palette($racingpoint, A400, A200, A700);
+$racingpoint-accent: mat-palette($racingpoint, A700, A200, A700);
 .racingpoint {
   .highlight {
     background-color: mat-color($racingpoint-accent)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
   }
   $racingpoint-light: mat-light-theme($racingpoint-primary, $racingpoint-accent, $f1app-warn);
   @include angular-material-theme($racingpoint-light);
@@ -137,6 +173,9 @@ $racingpoint-accent: mat-palette($racingpoint, A400, A200, A700);
     td {
       color: black!important;
     }
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat-color($racingpoint-accent)!important;
   }
   $racingpoint-dark: mat-dark-theme($racingpoint-primary, $racingpoint-accent, $f1app-warn);
   @include angular-material-theme($racingpoint-dark);
@@ -156,6 +195,9 @@ $alfaromeo-accent: mat-palette($alfaromeo, A200, A100, A400);
   .highlight {
     background-color: mat-color($alfaromeo-primary)!important;
   }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat-color($racingpoint-accent)!important;
+  }
   $alfaromeo-dark: mat-dark-theme($alfaromeo-primary, $alfaromeo-accent, $f1app-warn);
   @include angular-material-theme($alfaromeo-dark);
 }
@@ -164,7 +206,10 @@ $haas-primary: mat-palette($haas);
 $haas-accent: mat-palette($haas, A200, A100, A400);
 .haas {
   .highlight {
-    background-color: mat-color($haas-accent)!important;
+    background-color: rgba(0, 0, 0, 0.12)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
   }
   $haas-light: mat-light-theme($haas-primary, $haas-accent, $f1app-warn);
   @include angular-material-theme($haas-light);
@@ -177,18 +222,35 @@ $haas-accent: mat-palette($haas, A200, A100, A400);
       color: black!important;
     }
   }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white!important;
+  }
   $haas-dark: mat-dark-theme($haas-primary, $haas-accent, $f1app-warn);
   @include angular-material-theme($haas-dark);
 }
 
 $williams-primary: mat-palette($williams);
-$williams-accent: mat-palette($williams, A200, A100, A400);
+$williams-accent: mat-palette($williams, A400, A100, A400);
 .williams {
   .highlight {
     background-color: mat-color($williams-accent)!important;
     td {
       color: black!important;
     }
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black!important;
+  }
+  $williams-light: mat-light-theme($williams-primary, $williams-accent, $f1app-warn);
+  @include angular-material-theme($williams-light);
+}
+
+.williams.dark {
+  .highlight {
+    background-color: mat-color($williams-primary)!important;
+  }
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: white!important;
   }
   $williams-dark: mat-dark-theme($williams-primary, $williams-accent, $f1app-warn);
   @include angular-material-theme($williams-dark);

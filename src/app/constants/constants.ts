@@ -11,7 +11,7 @@ export const TEAMS: Team[] = [
   { id: 'redbull', name: 'Red Bull' },
   { id: 'mclaren', name: 'McLaren' },
   { id: 'renault', name: 'Renault' },
-  { id: 'tororosso', name: 'Toro Rosso' },
+  { id: 'alphatauri', name: 'AlphaTauri' },
   { id: 'racingpoint', name: 'Racing Point' },
   { id: 'alfaromeo', name: 'Alfa Romeo' },
   { id: 'haas', name: 'Haas' },
