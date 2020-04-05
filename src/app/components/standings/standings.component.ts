@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { StandingsService } from '../../services/standings.service';
-import { DriverStandingsDataSource } from '../../models/Standings';
+import { DriverStandingsDataSource, ConstructorStandingsDataSource } from '../../models/Standings';
 import { FIRST_SEASON, CURRENT_SEASON } from '../../constants/constants';
+import { combineLatest } from 'rxjs';
 
 @Component({
-  selector: 'app-calendar',
+  selector: 'app-standings',
   templateUrl: './standings.component.html',
   styleUrls: ['./standings.component.css']
 })
@@ -16,8 +17,8 @@ export class StandingsComponent implements OnInit {
   firstSeason = FIRST_SEASON;
   currentSeason = CURRENT_SEASON;
   selectedSeason: number;
-  dataSource: DriverStandingsDataSource[];
-  displayedColumns = ['position', 'driver', 'constructors', 'points', 'wins'];
+  driversDataSource: DriverStandingsDataSource[];
+  constructorsDataSource: ConstructorStandingsDataSource[];
 
   constructor(
     private route: ActivatedRoute,
@@ -38,15 +39,19 @@ export class StandingsComponent implements OnInit {
     } else {
       this.selectedSeason = season;
     }
-    this.getDriverStandings(this.selectedSeason);
+    this.getStandings(this.selectedSeason);
   }
 
-  getDriverStandings(season: number) {
+  getStandings(season: number) {
     this.error = '';
     this.loading = true;
-    this.standingsService.getDriverStandings(season).subscribe(
-      (data) => {
-        this.dataSource = data;
+    combineLatest([
+      this.standingsService.getDriverStandings(season),
+      this.standingsService.getConstructorStandings(season)
+    ]).subscribe(
+      ([drivers, constructors]) => {
+        this.driversDataSource = drivers;
+        this.constructorsDataSource = constructors;
         this.loading = false;
       },
       (error: Error) => {
@@ -58,7 +63,7 @@ export class StandingsComponent implements OnInit {
 
   onSetSeason(season: number) {
     this.selectedSeason = season;
-    this.getDriverStandings(this.selectedSeason);
+    this.getStandings(this.selectedSeason);
     this.location.replaceState(`/standings/${this.selectedSeason}`);
   }
 }

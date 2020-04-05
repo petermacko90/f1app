@@ -1,0 +1,30 @@
+<p *ngIf="error">{{ error }}</p>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<table mat-table [dataSource]="dataSource" *ngIf="!loading && !error">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef title="Position" class="tr">Pos.</th>
+    <td class="tr" mat-cell *matCellDef="let element">
+      {{ element.position }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="constructor">
+    <th mat-header-cell *matHeaderCellDef>Constructor</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.constructor }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="points">
+    <th mat-header-cell *matHeaderCellDef class="tr">Points</th>
+    <td class="tr" mat-cell *matCellDef="let element">
+      {{ element.points }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="wins">
+    <th mat-header-cell *matHeaderCellDef class="tr">Wins</th>
+    <td class="tr" mat-cell *matCellDef="let element">
+      {{ element.wins }}
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -14,12 +14,16 @@ import { SeasonSelectComponent } from './components/season-select/season-select.
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ThemeService } from './services/theme.service';
+import { DriverStandingsComponent } from './components/standings/driver-standings.component';
+import { ConstructorrStandingsComponent } from './components/standings/constructor-standings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
     StandingsComponent,
+    DriverStandingsComponent,
+    ConstructorrStandingsComponent,
     SeasonSelectComponent,
     NavigationComponent,
     NotFoundComponent

@@ -5,7 +5,10 @@ import { map, catchError } from 'rxjs/operators';
 import {
   DriverStandings,
   DriverStandingsData,
-  DriverStandingsDataSource
+  DriverStandingsDataSource,
+  ConstructorStandings,
+  ConstructorStandingsData,
+  ConstructorStandingsDataSource
 } from '../models/Standings';
 import { BASE_URL } from '../constants/constants';
 
@@ -14,6 +17,7 @@ import { BASE_URL } from '../constants/constants';
 })
 export class StandingsService {
   private driverStandings: { [K: string]: DriverStandings[] };
+  private constructorStandings: { [k: string]: ConstructorStandings[] };
 
   constructor(private http: HttpClient) {}
 
@@ -42,23 +46,47 @@ export class StandingsService {
     }
   }
 
-  private getDriversDataSource(standings: DriverStandings[]): DriverStandingsDataSource[] {
-    return standings.map(s => {
-      let constructors = '';
-      for (let i = 0, l = s.Constructors.length; i < l; i++) {
-        constructors += s.Constructors[i].name;
-        if (i + 1 !== l) {
-          constructors += ', ';
-        }
-      }
+  getConstructorStandings(season: number): Observable<ConstructorStandingsDataSource[]> {
+    if (this.constructorStandings && this.constructorStandings[season]) {
+      return of(this.getConstructorsDataSource(this.constructorStandings[season]));
+    } else {
+      return this.http.get<ConstructorStandingsData>(`${BASE_URL}/${season}/constructorstandings.json`)
+        .pipe(
+          map(data => {
+            const standings = data.MRData.StandingsTable.StandingsLists;
+            if (standings.length === 0) {
+              throw new Error('No data available');
+            } else {
+              this.constructorStandings = {
+                ...this.constructorStandings,
+                ...{ [season]: standings[0].ConstructorStandings }
+              };
+              return this.getConstructorsDataSource(standings[0].ConstructorStandings);
+            }
+          }),
+          catchError(error => {
+            throw new Error(error);
+          })
+        );
+    }
+  }
 
-      return {
-        position: `${s.position}.`,
-        driver: `${s.Driver.givenName} ${s.Driver.familyName}`,
-        constructors: constructors,
-        points: s.points,
-        wins: s.wins
-      };
-    });
+  private getDriversDataSource(standings: DriverStandings[]): DriverStandingsDataSource[] {
+    return standings.map(s => ({
+      position: `${s.position}.`,
+      driver: `${s.Driver.givenName} ${s.Driver.familyName}`,
+      constructors: s.Constructors.map(c => c.name).join(', '),
+      points: s.points,
+      wins: s.wins
+    }));
+  }
+
+  private getConstructorsDataSource(standings: ConstructorStandings[]): ConstructorStandingsDataSource[] {
+    return standings.map(s => ({
+      position: `${s.position}.`,
+      constructor: s.Constructor.name,
+      points: s.points,
+      wins: s.wins
+    }));
   }
 }

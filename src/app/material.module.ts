@@ -8,7 +8,8 @@ import {
   MatFormFieldModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  MatTableModule
+  MatTableModule,
+  MatTabsModule
 } from '@angular/material';
 
 @NgModule({
@@ -20,7 +21,8 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
   exports: [
     MatToolbarModule,
@@ -30,7 +32,8 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule {}
