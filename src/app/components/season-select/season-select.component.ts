@@ -19,7 +19,7 @@ export class SeasonSelectComponent implements OnInit {
   }
 
   onChangeSeason(change: number) {
-    this.changeSeason.emit(this.selectedSeason += change);
+    this.changeSeason.emit(this.selectedSeason + change);
   }
 
   onSelectSeason(e: MatSelectChange) {

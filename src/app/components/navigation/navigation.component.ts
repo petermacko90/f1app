@@ -9,13 +9,11 @@ import { TEAMS } from '../../constants/constants';
 })
 export class NavigationComponent implements OnInit {
   teams = TEAMS;
-  theme: string;
   isDark: boolean;
 
   constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
-    this.themeService.theme.subscribe(theme => this.theme = theme);
     this.themeService.isDark.subscribe(isDark => this.isDark = isDark);
   }
 

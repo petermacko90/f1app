@@ -16,7 +16,7 @@ import { BASE_URL } from '../constants/constants';
   providedIn: 'root'
 })
 export class StandingsService {
-  private driverStandings: { [K: string]: DriverStandings[] };
+  private driverStandings: { [k: string]: DriverStandings[] };
   private constructorStandings: { [k: string]: ConstructorStandings[] };
 
   constructor(private http: HttpClient) {}
