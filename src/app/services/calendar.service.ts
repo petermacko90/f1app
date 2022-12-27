@@ -41,7 +41,7 @@ export class CalendarService {
     return time ? new Date(`${date}T${time}`) : new Date(date);
   }
 
-  private getUpcomingRace(races: Race[]) {
+  private getUpcomingRace(races: Race[]): string {
     for (let i = 0, l = races.length, d = new Date(); i < l; i++) {
       if (d < this.getDate(races[i].date, races[i].time)) {
         return races[i].round;
