@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ConstructorStandings } from 'src/app/models/Standings';
+import { ConstructorStandingsDataSource } from 'src/app/models/Standings';
 
 @Component({
   selector: 'app-constructor-standings',
@@ -9,9 +9,9 @@ import { ConstructorStandings } from 'src/app/models/Standings';
 export class ConstructorrStandingsComponent {
   @Input() loading: boolean;
   @Input() error: string;
-  @Input() dataSource: ConstructorStandings[];
+  @Input() dataSource: ConstructorStandingsDataSource[];
 
   displayedColumns = ['position', 'constructor', 'points', 'wins'];
 
-  constructor() {}
+  constructor() { }
 }

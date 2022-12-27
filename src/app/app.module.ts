@@ -49,10 +49,10 @@ export class AppModule {
     private themeService: ThemeService,
     overlayContainer: OverlayContainer
   ) {
-    const themes = combineLatest([this.themeService.theme, this.themeService.isDark]);
-    themes.subscribe(([theme, isDark]) => {
-      const dark = isDark ? 'dark' : '';
-      overlayContainer.getContainerElement().className = `cdk-overlay-container ${theme} ${dark}`;
-    });
+    combineLatest([this.themeService.theme, this.themeService.isDark])
+      .subscribe(([theme, isDark]) => {
+        overlayContainer.getContainerElement().className =
+          `cdk-overlay-container ${theme}${isDark ? ' dark' : ''}`;
+      });
   }
 }
